@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Happy Birthday 🎉</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI';
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      text-align: center;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      margin-top: 30px;
+      font-size: 45px;
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px white; }
+      to { text-shadow: 0 0 30px yellow; }
+    }
+
+    .card {
+      background: white;
+      color: black;
+      margin: 20px;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      animation: fadeIn 1.5s;
+    }
+
+    img {
+      width: 200px;
+      border-radius: 15px;
+      margin: 10px;
+      transition: 0.5s;
+    }
+
+    img:hover {
+      transform: scale(1.1);
+    }
+
+    button {
+      padding: 12px 25px;
+      border: none;
+      background: #ff4d6d;
+      color: white;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #e60039;
+      transform: scale(1.1);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+
+    .hidden {
+      display: none;
+      font-size: 20px;
+      margin-top: 15px;
+    }
+
+    .final {
+      display: none;
+      font-size: 22px;
+      margin-top: 20px;
+      color: yellow;
+    }
+
+    .hearts {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      top: 0;
+      left: 0;
+    }
+
+    .heart {
+      position: absolute;
+      color: red;
+      animation: float 5s linear infinite;
+      font-size: 20px;
+    }
+
+    @keyframes float {
+      from { transform: translateY(100vh); opacity: 1;}
+      to { transform: translateY(-10vh); opacity: 0;}
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <h1>🎉 Happy Birthday 💖 🎉</h1>
+
+  <div class="card">
+    <p>
+      Tu meri life ka sabse special part hai ❤️<br>
+      Har khushi tere saath hi achi lagti hai 💫
+    </p>
+  </div>
+
+  <div class="card">
+    <img src="https://via.placeholder.com/200">
+    <img src="https://via.placeholder.com/200">
+    <img src="https://via.placeholder.com/200">
+    <p>Hamari Best Memories 📸</p>
+  </div>
+
+  <div class="card">
+    <button onclick="step1()">First Surprise 🎁</button><br><br>
+    <button onclick="step2()">Second Surprise 💌</button><br><br>
+    <button onclick="step3()">Final Surprise 💖</button>
+
+    <p id="msg1" class="hidden">Tu meri sabse pyaari dost hai 💕</p>
+    <p id="msg2" class="hidden">Kabhi door mat jana 😭💖</p>
+    <p id="final" class="final">I Love You Dost 💖✨</p>
+  </div>
+
+  <div class="hearts" id="hearts"></div>
+
+  <script>
+    function step1() {
+      document.getElementById("msg1").style.display = "block";
+    }
+
+    function step2() {
+      document.getElementById("msg2").style.display = "block";
+    }
+
+    function step3() {
+      document.getElementById("final").style.display = "block";
+      createHearts();
+    }
+
+    function createHearts() {
+      let container = document.getElementById("hearts");
+      for (let i = 0; i < 30; i++) {
+        let heart = document.createElement("div");
+        heart.innerHTML = "❤️";
+        heart.classList.add("heart");
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+        container.appendChild(heart);
+      }
+    }
+  </script>
+
+</body>
+</html>
